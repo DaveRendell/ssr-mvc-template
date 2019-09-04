@@ -1,0 +1,29 @@
+$content-width: 800px;
+$primary-colour: skyblue;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$header-height: 40px;
+.page-header {
+  width: 100%;
+  height: $header-height;
+  padding: 0 10px;
+  line-height: $header-height;
+  font-size: 20px;
+  color: white;
+  background-color: $primary-colour;
+  border-bottom: 1px solid lightgray;
+}
+
+.page-content {
+  margin: 0 auto;
+  padding: 0 10px;
+  max-width: $content-width;
+}

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User page index returns unauthorised if user is not logged in 1`] = `"Unauthorized"`;
+
+exports[`User page index returns user page content if user is logged in 1`] = `
+<html>
+  <head>
+    <link rel="stylesheet"
+          type="text/css"
+          href="styles/app.css"
+    >
+  </head>
+  <body>
+    <div class="page-header">
+      <strong>
+        App Header
+      </strong>
+    </div>
+    <div class="page-content">
+      <div>
+        <h1>
+          User Page
+        </h1>
+        <p>
+          Email address: testuser1@example.com
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+`;
