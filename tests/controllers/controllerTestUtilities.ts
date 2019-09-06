@@ -1,5 +1,4 @@
 import express, {NextFunction} from 'express'
-import Controller from '../../src/controllers/controller';
 
 export function mockUserMiddleware(user: Express.User) {
   return (

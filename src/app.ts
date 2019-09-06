@@ -6,8 +6,10 @@ import passport from "passport"
 import path from "path"
 import setupPassport from "./authentication/setupPassport"
 import Config from "./config"
+import GoogleAuthController from "./controllers/googleAuthController"
 import HomepageController from "./controllers/homepageController"
 import UserController from "./controllers/userController"
+import DecodeUserInfoMiddleware from "./middleware/decodeUserInfoMiddleware"
 import * as UsersService from "./services/usersService"
 
 export default async function createApp(
@@ -21,15 +23,36 @@ export default async function createApp(
   // Create services
   const usersService = UsersService.create(database)
 
+  // Create Middleware
+  const decodeUserInfoMiddleware = new DecodeUserInfoMiddleware(config)
+
   // Create controllers
   const homepageController = new HomepageController(usersService)
   const userController = new UserController()
+  const googleAuthController = new GoogleAuthController(usersService, config)
 
   const app = express()
   app.use(cookieParser())
+  app.use(decodeUserInfoMiddleware.decode)
   app.use(setupPassport(usersService, config))
 
+  // Serve SASS source files as CSS. Only used in development
+  const stylesDirectory = path.join(__dirname, "styles")
+  app.use("/styles", sassMiddleware({
+    src: stylesDirectory,
+    outputStyle: "compressed",
+  }))
+  app.use("/styles", express.static(stylesDirectory))
+
   // Define application routes
+  app.use(
+    "/google-auth/",
+    passport.authenticate(
+      "google",
+      {scope: "openid email profile"}
+    ),
+    googleAuthController.router
+  )
   const openRoutes = Router()
   const authenticatedRoutes = Router()
 
@@ -39,14 +62,6 @@ export default async function createApp(
 
   app.use(openRoutes)
   app.use(passport.authenticate("jwt"), authenticatedRoutes)
-
-  // Serve SASS source files as CSS. Only used in development
-  const stylesDirectory = path.join(__dirname, "styles")
-  app.use("/styles", sassMiddleware({
-    src: stylesDirectory,
-    outputStyle: "compressed",
-  }))
-  app.use("/styles", express.static(stylesDirectory))
 
   return app
 }

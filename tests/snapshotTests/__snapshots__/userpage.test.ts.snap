@@ -2,6 +2,8 @@
 
 exports[`User page index returns unauthorised if user is not logged in 1`] = `"Unauthorized"`;
 
+exports[`User page index returns unauthorised if user token is not valid 1`] = `"Unauthorized"`;
+
 exports[`User page index returns user page content if user is logged in 1`] = `
 <html>
   <head>
@@ -22,7 +24,7 @@ exports[`User page index returns user page content if user is logged in 1`] = `
           User Page
         </h1>
         <p>
-          Email address: testuser1@example.com
+          Display name: test-name
         </p>
       </div>
     </div>

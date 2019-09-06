@@ -21,6 +21,6 @@ export default class HomepageController {
     const users = await this.usersService.getUsers()
     const emails = users.map((user) => user.email)
 
-    response.send(renderStaticPage(indexView({emails})))
+    response.send(renderStaticPage(indexView({emails, user: request.user})))
   }
 }

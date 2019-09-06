@@ -1,13 +1,31 @@
 import * as React from "react"
 
 export interface HomepageIndexProps {
-  emails: string[]
+  emails: string[],
+  user: Express.User
+}
+
+function userInfo(displayName: string) {
+  return (
+    <p>
+      Logged in as {displayName}.
+    </p>
+  )
+}
+
+function loginButton() {
+  return (
+    <p>
+      <a href="/google-auth/">Log in with Google</a>
+    </p>
+  )
 }
 
 export default function indexView(props: HomepageIndexProps) {
   return (
     <div>
       <h1>Homepage</h1>
+      { props.user ? userInfo(props.user.displayName) : loginButton()}
       <ul>
         {
           props.emails.map((email, ix) => {

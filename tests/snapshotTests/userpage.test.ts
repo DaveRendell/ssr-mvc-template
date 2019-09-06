@@ -1,10 +1,12 @@
 import request from "supertest"
-import {cookieName} from '../../src/authentication/jwt'
-import {startApp, getJwtToken, httpStatus} from "./snapshotTestUtilities"
+import {cookieName} from '../../src/middleware/decodeUserInfoMiddleware'
+import {startApp} from "./snapshotTestUtilities"
+import {httpStatus, getJwtToken} from "../testUtilities"
 
 describe("User page", () => {
   let app: Express.Application
-  const validJwtToken = getJwtToken({id: 1})
+  const validJwtToken = getJwtToken(1, "test-name")
+  const invalidJwtToken = getJwtToken(-1, "non-existant-user")
 
   beforeAll(async () => {
     app = await startApp()
@@ -13,6 +15,15 @@ describe("User page", () => {
   describe("index", () => {
     it("returns unauthorised if user is not logged in", async () => {
       const response = await request(app).get("/user/")
+
+      expect(response.status).toBe(httpStatus.unauthorized)
+      expect(response.text).toMatchSnapshot()
+    })
+
+    it("returns unauthorised if user token is not valid", async () => {
+      const response = await request(app)
+        .get("/user/")
+        .set("Cookie", [`${cookieName}=${invalidJwtToken}`])
 
       expect(response.status).toBe(httpStatus.unauthorized)
       expect(response.text).toMatchSnapshot()

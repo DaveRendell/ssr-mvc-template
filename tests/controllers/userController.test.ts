@@ -8,7 +8,7 @@ describe("UserController", () => {
   const userController = new UserController()
 
   const app = express()
-  app.use(mockUserMiddleware({id: 1, email: "test-email"}))
+  app.use(mockUserMiddleware({id: 1, displayName: "test-name"}))
 
   app.use(userController.router)
 
@@ -25,7 +25,7 @@ describe("UserController", () => {
       await request(app).get("/")
       
       expect(indexSpy).toHaveBeenCalledWith({
-        email: "test-email"
+        displayName: "test-name"
       })
     })
   })

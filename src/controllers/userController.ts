@@ -12,8 +12,8 @@ export default class UserController {
   }
 
   public async index(request: Request, response: Response) {
-    const email = request.user.email
+    const displayName = request.user.displayName
 
-    response.send(renderStaticPage(indexView({email})))
+    response.send(renderStaticPage(indexView({displayName})))
   }
 }

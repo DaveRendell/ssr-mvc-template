@@ -59,4 +59,32 @@ describe("usersService", () => {
       )
     })
   })
+
+  describe("findOrCreateUser", () => {
+    it("returns existing user", async () => {
+      // Arrange
+      await addUser("test1@example.com")
+
+      // Act
+      const user = await usersService.findOrCreateUser("test1@example.com")
+
+      // Assert
+      expect(user).toEqual(
+        {id: 1, email: "test1@example.com"}
+      )
+    })
+
+    it("creates a new user", async () => {
+      // Arrange
+      await addUser("test1@example.com")
+
+      // Act
+      const user = await usersService.findOrCreateUser("test2@example.com")
+
+      // Assert
+      expect(user).toEqual(
+        {id: 2, email: "test2@example.com"}
+      )
+    })
+  })
 })

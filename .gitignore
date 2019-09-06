@@ -102,3 +102,6 @@ src/styles/*.css
 
 # Development SQLite Database
 database/dev.sqlite3
+
+# Secret config values
+.env

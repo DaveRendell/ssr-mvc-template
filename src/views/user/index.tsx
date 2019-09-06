@@ -1,14 +1,14 @@
 import * as React from "react"
 
 export interface UserIndexProps {
-  email: string
+  displayName: string
 }
 
-export default function indexView({email}: UserIndexProps) {
+export default function indexView({displayName}: UserIndexProps) {
   return (
     <div>
       <h1>User Page</h1>
-      <p>Email address: {email}</p>
+      <p>Display name: {displayName}</p>
     </div>
   )
 }

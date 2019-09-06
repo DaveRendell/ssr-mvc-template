@@ -1,6 +1,7 @@
 import passport from "passport"
 import Config from "../config"
 import UsersService from "../services/usersService"
+import googleAuthentication from "./google"
 import jwtAuthentication from "./jwt"
 
 export default function setupPassport(
@@ -8,7 +9,8 @@ export default function setupPassport(
   config: Config
 ) {
 
-  passport.use(jwtAuthentication(usersService, config))
+  passport.use("jwt", jwtAuthentication(usersService))
+  passport.use(googleAuthentication(usersService, config))
 
   passport.serializeUser((user: Express.User, done) => {
     done(null, user.id)
