@@ -1,5 +1,5 @@
 import TestRenderer from 'react-test-renderer'
-import Clicker from '../../../src/views/home/clicker'
+import Clicker from '../../../src/views/components/clicker'
 import * as React from "react"
 
 describe("Clicker", () => {

@@ -1,6 +1,6 @@
 import express, { Request, Response, Router } from "express"
+import indexView from "../views/pages/user/index"
 import {renderStaticPage} from "../views/renderPage"
-import indexView from "../views/user/index"
 
 export default class UserController {
   public router: Router

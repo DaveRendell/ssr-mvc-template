@@ -1,6 +1,6 @@
 import request from "supertest"
 import express from 'express'
-import * as index from '../../src/views/user/index'
+import * as index from '../../src/views/pages/user/index'
 import UserController from "../../src/controllers/userController"
 import {mockUserMiddleware} from './controllerTestUtilities'
 

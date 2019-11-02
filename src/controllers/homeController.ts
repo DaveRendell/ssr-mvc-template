@@ -1,6 +1,6 @@
 import express, {Request, Response, Router} from "express"
 import UsersService from "../services/usersService"
-import indexView from "../views/home/index"
+import indexView from "../views/pages/home/index"
 import {renderPage, renderStaticPage} from "../views/renderPage"
 
 /**

@@ -108,3 +108,6 @@ database/dev.sqlite3
 
 # Compiled JS for serving to front end
 public/
+
+# ReactDOM Hydrate wrappers used as Webpack entrypoints
+src/views/**/public.tsx

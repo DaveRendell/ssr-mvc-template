@@ -1,5 +1,5 @@
 import * as React from "react"
-import Clicker from "./clicker"
+import Clicker from "../../components/clicker"
 
 export interface HomepageIndexProps {
   emails: string[],
