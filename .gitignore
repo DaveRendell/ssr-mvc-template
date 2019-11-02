@@ -105,3 +105,6 @@ database/dev.sqlite3
 
 # Secret config values
 .env
+
+# Compiled JS for serving to front end
+public/

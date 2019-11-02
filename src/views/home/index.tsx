@@ -1,4 +1,5 @@
 import * as React from "react"
+import Clicker from "./clicker"
 
 export interface HomepageIndexProps {
   emails: string[],
@@ -33,6 +34,7 @@ export default function indexView(props: HomepageIndexProps) {
           })
         }
       </ul>
+      <Clicker />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar elit sit amet aliquam venenatis. Morbi
         nisi leo, porttitor ut lectus vitae, semper porttitor leo. Nam bibendum consequat ex, id interdum enim interdum

@@ -44,6 +44,10 @@ export default async function createApp(
   }))
   app.use("/styles", express.static(stylesDirectory))
 
+  // Serve static files
+  const publicDirectory = path.join(__dirname, "..", "public")
+  app.use("/public", express.static(publicDirectory))
+
   // Define application routes
   app.use(
     "/google-auth/",

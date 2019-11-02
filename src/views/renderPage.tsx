@@ -1,5 +1,6 @@
 import * as React from "react"
-import {renderToStaticMarkup} from "react-dom/server"
+import {renderToStaticMarkup, renderToString} from "react-dom/server"
+import { JSXElement } from "@babel/types"
 
 export function renderStaticPage(Component: JSX.Element) {
   return renderToStaticMarkup(
@@ -8,13 +9,33 @@ export function renderStaticPage(Component: JSX.Element) {
         <link rel="stylesheet" type="text/css" href="styles/app.css" />
       </head>
       <body>
-        <div className="page-header">
+        <div id="page-header">
           <strong>App Header</strong>
         </div>
-        <div className="page-content">
+        <div id="page-content">
           {Component}
         </div>
       </body>
     </html>
   )
+}
+
+export function renderPage(
+  Component: (...args: any) => JSX.Element, 
+  initialState:any, 
+  bundleName: string
+) {
+  return `<html>
+    <head>
+      <link rel="stylesheet" type="text/css" href="styles/app.css" />
+      <script>window.__INITIAL__DATA__ = ${JSON.stringify(initialState)}</script>
+    </head>
+    <body>
+      <div id="page-header">
+        <strong>App Header</strong>
+      </div>
+      <div id="page-content">${renderToString(Component(initialState))}</div>
+      <script src="public/${bundleName}.js"></script>
+    </body>
+  </html>`
 }

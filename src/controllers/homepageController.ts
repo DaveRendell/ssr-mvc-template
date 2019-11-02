@@ -1,7 +1,7 @@
 import express, {Request, Response, Router} from "express"
 import UsersService from "../services/usersService"
-import indexView from "../views/homepage/index"
-import {renderStaticPage} from "../views/renderPage"
+import indexView from "../views/home/index"
+import {renderStaticPage, renderPage} from "../views/renderPage"
 
 /**
  * Controller for root of the website
@@ -21,6 +21,6 @@ export default class HomepageController {
     const users = await this.usersService.getUsers()
     const emails = users.map((user) => user.email)
 
-    response.send(renderStaticPage(indexView({emails, user: request.user})))
+    response.send(renderPage(indexView, {emails, user: request.user}, "home"))
   }
 }
