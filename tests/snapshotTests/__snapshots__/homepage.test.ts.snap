@@ -7,20 +7,25 @@ exports[`Home page index returns homepage content for logged in users 1`] = `
           type="text/css"
           href="styles/app.css"
     >
+    <script>
+      window.__INITIAL__DATA__ = {"emails":["testuser1@example.com","testuser2@example.com","testuser3@example.com"],"user":{"id":1,"displayName":"test-name"}}
+    </script>
   </head>
   <body>
-    <div class="page-header">
+    <div id="page-header">
       <strong>
         App Header
       </strong>
     </div>
-    <div class="page-content">
-      <div>
+    <div id="page-content">
+      <div data-reactroot>
         <h1>
           Homepage
         </h1>
         <p>
-          Logged in as test-name.
+          Logged in as
+          test-name
+          .
         </p>
         <ul>
           <li>
@@ -33,6 +38,15 @@ exports[`Home page index returns homepage content for logged in users 1`] = `
             testuser3@example.com
           </li>
         </ul>
+        <div>
+          <span>
+            0
+            clicks
+          </span>
+          <button>
+            Click!
+          </button>
+        </div>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar elit sit amet aliquam venenatis. Morbi nisi leo, porttitor ut lectus vitae, semper porttitor leo. Nam bibendum consequat ex, id interdum enim interdum non. Suspendisse laoreet nibh sapien, ac laoreet mi maximus ac. Sed magna quam, tincidunt condimentum elementum nec, suscipit eget justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a vulputate lorem, hendrerit vestibulum sem. Nunc pharetra suscipit laoreet. Maecenas dui urna, interdum quis nulla at, molestie pharetra dolor. Proin rutrum sodales leo, luctus sollicitudin dui imperdiet nec.
         </p>
@@ -47,6 +61,8 @@ exports[`Home page index returns homepage content for logged in users 1`] = `
         </p>
       </div>
     </div>
+    <script src="public/home.js">
+    </script>
   </body>
 </html>
 `;
@@ -58,15 +74,18 @@ exports[`Home page index returns homepage content for unauthenticated users 1`] 
           type="text/css"
           href="styles/app.css"
     >
+    <script>
+      window.__INITIAL__DATA__ = {"emails":["testuser1@example.com","testuser2@example.com","testuser3@example.com"]}
+    </script>
   </head>
   <body>
-    <div class="page-header">
+    <div id="page-header">
       <strong>
         App Header
       </strong>
     </div>
-    <div class="page-content">
-      <div>
+    <div id="page-content">
+      <div data-reactroot>
         <h1>
           Homepage
         </h1>
@@ -86,6 +105,15 @@ exports[`Home page index returns homepage content for unauthenticated users 1`] 
             testuser3@example.com
           </li>
         </ul>
+        <div>
+          <span>
+            0
+            clicks
+          </span>
+          <button>
+            Click!
+          </button>
+        </div>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar elit sit amet aliquam venenatis. Morbi nisi leo, porttitor ut lectus vitae, semper porttitor leo. Nam bibendum consequat ex, id interdum enim interdum non. Suspendisse laoreet nibh sapien, ac laoreet mi maximus ac. Sed magna quam, tincidunt condimentum elementum nec, suscipit eget justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a vulputate lorem, hendrerit vestibulum sem. Nunc pharetra suscipit laoreet. Maecenas dui urna, interdum quis nulla at, molestie pharetra dolor. Proin rutrum sodales leo, luctus sollicitudin dui imperdiet nec.
         </p>
@@ -100,6 +128,8 @@ exports[`Home page index returns homepage content for unauthenticated users 1`] 
         </p>
       </div>
     </div>
+    <script src="public/home.js">
+    </script>
   </body>
 </html>
 `;

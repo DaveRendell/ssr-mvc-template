@@ -10,7 +10,8 @@ module.exports = {
     "src/**/*.{ts,tsx}",
     "!src/server.ts",
     "!src/config.ts",
-    "!src/types/**/*"
+    "!src/types/**/*",
+    "!src/views/**/public.tsx"
   ],
   "coverageThreshold": {
     "global": {

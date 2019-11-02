@@ -1,6 +1,6 @@
+import { JSXElement } from "@babel/types"
 import * as React from "react"
 import {renderToStaticMarkup, renderToString} from "react-dom/server"
-import { JSXElement } from "@babel/types"
 
 export function renderStaticPage(Component: JSX.Element) {
   return renderToStaticMarkup(
@@ -21,8 +21,8 @@ export function renderStaticPage(Component: JSX.Element) {
 }
 
 export function renderPage(
-  Component: (...args: any) => JSX.Element, 
-  initialState:any, 
+  Component: (...args: any) => JSX.Element,
+  initialState: any,
   bundleName: string
 ) {
   return `<html>

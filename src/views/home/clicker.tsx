@@ -1,12 +1,16 @@
-import * as React from 'react'
+import * as React from "react"
 
 export default function Clicker() {
-  const [clicks, setClick] = React.useState(0)
+  const [clicks, setClicks] = React.useState(0)
+
+  function handleClick() {
+    setClicks(clicks + 1)
+  }
 
   return (
     <div>
       <span>{clicks} clicks</span>
-      <button onClick={() => setClick(clicks + 1)}>Click!</button>
+      <button onClick={handleClick}>Click!</button>
     </div>
   )
 }

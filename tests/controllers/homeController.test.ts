@@ -1,8 +1,8 @@
-import HomepageController from "../../src/controllers/homepageController";
+import HomepageController from "../../src/controllers/homeController";
 import UsersService from "../../src/services/usersService"
 import request from "supertest"
 import express from 'express'
-import * as index from '../../src/views/homepage/index'
+import * as index from '../../src/views/home/index'
 import {mockUserMiddleware} from './controllerTestUtilities'
 
 describe("HomepageController", () => {

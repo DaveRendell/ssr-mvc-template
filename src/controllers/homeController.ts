@@ -1,7 +1,7 @@
 import express, {Request, Response, Router} from "express"
 import UsersService from "../services/usersService"
 import indexView from "../views/home/index"
-import {renderStaticPage, renderPage} from "../views/renderPage"
+import {renderPage, renderStaticPage} from "../views/renderPage"
 
 /**
  * Controller for root of the website

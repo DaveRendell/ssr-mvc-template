@@ -13,12 +13,12 @@ exports[`User page index returns user page content if user is logged in 1`] = `
     >
   </head>
   <body>
-    <div class="page-header">
+    <div id="page-header">
       <strong>
         App Header
       </strong>
     </div>
-    <div class="page-content">
+    <div id="page-content">
       <div>
         <h1>
           User Page
