@@ -11,6 +11,9 @@ exports[`User page index returns user page content if user is logged in 1`] = `
           type="text/css"
           href="styles/app.css"
     >
+    <script>
+      window.__INITIAL__DATA__ = {"displayName":"test-name"}
+    </script>
   </head>
   <body>
     <div id="page-header">
@@ -19,15 +22,27 @@ exports[`User page index returns user page content if user is logged in 1`] = `
       </strong>
     </div>
     <div id="page-content">
-      <div>
+      <div data-reactroot>
         <h1>
           User Page
         </h1>
         <p>
-          Display name: test-name
+          Display name:
+          test-name
         </p>
+        <div>
+          <span>
+            0
+            clicks
+          </span>
+          <button>
+            Click!
+          </button>
+        </div>
       </div>
     </div>
+    <script src="public/user.js">
+    </script>
   </body>
 </html>
 `;

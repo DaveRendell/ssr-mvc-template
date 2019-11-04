@@ -1,6 +1,6 @@
 {
     "watch": ["src"],
     "ignore": ["src/views/pages/*/public.tsx"],
-    "ext": "ts,tsx",
+    "ext": "ts,tsx,hbs",
     "exec": "webpack --mode=development; ts-node ./src/server.ts"
   }
